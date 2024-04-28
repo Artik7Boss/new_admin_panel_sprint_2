@@ -28,4 +28,5 @@ COPY movies_admin .
 RUN python3 manage.py collectstatic --no-input
 
 # запускаем через uwsgi
+CMD [ "uwsgi", "--ini", "/movies_admin/uwsgi.ini" ]
 
