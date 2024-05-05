@@ -12,9 +12,10 @@ services:
     # Необходимо для соединения контейнера Django с контейнером Database.
     env_file:
       - "movies_admin/config/.env"
-    # Не запускать контейнер с PostgreSQL пока не соберется контейнер с Django.
+    # Не запускать контейнер с Django пока не соберется контейнер с PostgreSQL.
     depends_on:
       - database
+      - elasticsearch
   
   # Не нужно создавать свой собственный image, берем стандартный с Docker Hub.
   database:
@@ -44,4 +45,14 @@ services:
       - "80:80"
     depends_on:
       - django
+  
+  elasticsearch:
+    image: elasticsearch:8.13.0
+    container_name: elasticsearch
+    environment:
+      - "ES_JAVA_OPTS=-Xms200m -Xmx200m"
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - 9200:9200
   

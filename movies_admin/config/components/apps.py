@@ -7,4 +7,5 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'movies.apps.MoviesConfig',
     'rest_framework',
+    'elasticsearch_dsl',
 ]

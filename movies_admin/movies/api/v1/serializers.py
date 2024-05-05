@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from movies.models import Filmwork, GenreFilmWork, PersonFilmWork
+from movies.models import Filmwork
 
 
 class FilmworkSerializer(serializers.ModelSerializer):

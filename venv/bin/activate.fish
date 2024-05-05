@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/ArtemBoss/Desktop/new_admin_panel_sprint_1/venv"
+set -gx VIRTUAL_ENV "/Users/ArtemBoss/Desktop/artem_yandex_repo/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

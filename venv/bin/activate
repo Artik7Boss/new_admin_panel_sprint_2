@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/ArtemBoss/Desktop/new_admin_panel_sprint_1/venv"
+VIRTUAL_ENV="/Users/ArtemBoss/Desktop/artem_yandex_repo/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
