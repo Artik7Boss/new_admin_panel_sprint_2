@@ -3,7 +3,6 @@ import uuid
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
-from .search import FilmworkIndex, GenreIndex, PersonIndex
 
 ROLE_CHOICES = [
         ('actor', _('Actor')),
@@ -41,12 +40,6 @@ class Filmwork(UUIDMixin, TimeStampedMixin):
         db_table = "content\".\"film_work"
         verbose_name = _('Film')
         verbose_name_plural = _('Films')
-    
-    def indexing(self):
-        obj = FilmworkIndex(meta={'id': self.id}, title=self.title, 
-                            description=self.description)
-        obj.save()
-        return obj.to_dict(include_meta=True)
 
 
 class Genre(UUIDMixin, TimeStampedMixin):
@@ -59,12 +52,6 @@ class Genre(UUIDMixin, TimeStampedMixin):
         db_table = "content\".\"genre"
         verbose_name = _('Genre')
         verbose_name_plural = _('Genres' )
-    
-    def indexing(self):
-        obj = GenreIndex(meta={'id': self.id}, name=self.name, 
-                            description=self.description)
-        obj.save()
-        return obj.to_dict(include_meta=True)
 
 
 class Person(UUIDMixin, TimeStampedMixin):
@@ -75,12 +62,6 @@ class Person(UUIDMixin, TimeStampedMixin):
         db_table = "content\".\"person"
         verbose_name = _('Person')
         verbose_name_plural = _('Persons' )
-    
-
-    def indexing(self):
-        obj = PersonIndex(meta={'id': self.id}, full_name=self.full_name)
-        obj.save()
-        return obj.to_dict(include_meta=True)
 
 
 class GenreFilmWork(UUIDMixin, TimeStampedMixin):

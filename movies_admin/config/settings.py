@@ -13,6 +13,5 @@ include(
     'components/static.py',
     'components/templates.py',
     'components/drf.py',
-    'components/elasticsearch_settings.py'
 ) 
 
